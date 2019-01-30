@@ -32,30 +32,39 @@ This program depends on:
 - shiboken2
 - PySide2
 
-Installing dependences on python is very easy but because there is a bug on `PySide2` and its dependence `shiboken2`, cant be installed using pip command.
+To install kaitaistruct, open a console and run:
 
-So from [qt website](https://download.qt.io/official_releases/QtForPython/pyside2/
-) download:
+`py -m pip install kaitaistruct`
 
-- shiboken2-5.12.0-5.12.0-cp35.cp36.cp37-none-win32.whl
-- PySide2-5.12.0-5.12.0-cp35.cp36.cp37-none-win32.whl
+pip module will download kaitaistruct from its repositories and install it for you-
+
+Now because there is a bug on `PySide2` and its `shiboken2`, cant be installed using the same pip command. Fix hasnt made yet to pip repositories.
+
+So from [qt website](http://download.qt.io/snapshots/ci/pyside/5.12/latest/pyside2/) download:
+
+- `shiboken2-5.12.1a1.*-5.12.2-cp35.cp36.cp37-none-win32.whl`
+- `PySide2-5.12.1a1.*-5.12.2-cp35.cp36.cp37-none-win32.whl`
+
+*where \* is whatever latest build code is*
 
 Now open the download folder in a console. Then run:
 
-- `py -m pip install shiboken2-5.12.0-5.12.0-cp35.cp36.cp37-none-win32.whl`
+- `py -m pip install shiboken2-5.12.1a1.*-5.12.2-cp35.cp36.cp37-none-win32.whl`
 
-- `py -m pip install PySide2-5.12.0-5.12.0-cp35.cp36.cp37-none-win32.whl`
-
-Then install kaitaistruct running:
-
-- `py -m pip install kaitaistruct`
+- `py -m pip install PySide2-5.12.1a1.*-5.12.2-cp35.cp36.cp37-none-win32.whl`
 
 #### 4- Install kaitai-struct-compiler
-Python `--debug` option isnt yet on release version so we need to install latest development version.
+This program is different from kaitaistruct installed with pip command.
+Kaitai struct compiler is used to generate python source code based on a .ksy file.
+
+
+Because there are required features that werent yet releasec, need to install latest development version.
 You can download it from the [official website](https://kaitai.io/#download)
 
-#### 5- You are ready to rock!
+You also must install Java Runtime Environment. Download it from https://www.java.com/en/download/
 
+#### 5- You are ready to rock!
+Remember to close the console and open a new one to start.
 
 ## Usage
 
@@ -65,6 +74,6 @@ The descriptor file must be named "packet.ksy".
 
 Then open a console into this folder and run:
 
-`py -m packet_analyzer`
+`pyw -m packet_analyzer`
 
 The descriptor file is parsed everytime the program starts.
