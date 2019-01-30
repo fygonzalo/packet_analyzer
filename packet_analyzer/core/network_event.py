@@ -7,7 +7,7 @@ from packet_analyzer.core.kaitai_item import KaitaiItem
 cwd = os.getcwd()
 
 description = cwd + "\\packet.ksy"
-result = subprocess.run(["kaitai-struct-compiler.bat", "--debug", "-t", "python", description, "-d"], stdout=sys.stdout)
+result = subprocess.run(["kaitai-struct-compiler.bat", "--debug", "-t", "python", description], stdout=sys.stdout)
 lib = importlib.reload(__import__("packet"))
 
 Packet = getattr(lib, "Packet")

@@ -50,7 +50,12 @@ Then install kaitaistruct running:
 
 - `py -m pip install kaitaistruct`
 
-#### 4- You are ready to rock!
+#### 4- Install kaitai-struct-compiler
+Python `--debug` option isnt yet on release version so we need to install latest development version.
+You can download it from the [official website](https://kaitai.io/#download)
+
+#### 5- You are ready to rock!
+
 
 ## Usage
 

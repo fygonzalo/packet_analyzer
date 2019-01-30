@@ -52,8 +52,8 @@ types:
                 size-eos: true
           account_info:
             seq:
-              - id: error_code #0 means no error
-                size: u2
+              - id: error_code # 0 means no error
+                type: u2
               - id: flags # Pin. What more?
                 type: u2
               - id: character_1
