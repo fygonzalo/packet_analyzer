@@ -45,6 +45,13 @@ types:
               cases:
                 0: account_info
                 2: auth_info
+                4: auth_character_delete_client
+                5: auth_create_pin_server
+                7: auth_create_pin_client
+                #7: auth_change_pin_server
+                8: auth_delete_pin_server 
+                9: auth_change_pin_client
+                10: auth_delete_pin_client
                 _: unknown_content
         types:
           unknown_content:
@@ -170,3 +177,39 @@ types:
                 type: u2
               - id: unk3
                 size: 16 # Based on unk2 ?
+          auth_delete_pin_client:
+            seq:
+             - id: pin # MD5 Hash
+               size: 32
+          auth_delete_pin_server:
+            seq:
+             - id: result # Success[1] or Fail[0] to delete Pin
+               size: 1
+          auth_create_pin_client:
+            seq:
+             - id: password # MD5 Hash
+               size: 33 # Last byte is a filler Real value 32
+             - id: pin # MD5 Hash
+               size: 33 # Last byte is a filler Real value 32
+          auth_create_pin_server:
+            seq:
+             - id: result # Success[1] or Fail[0] to create Pin
+               size: 1
+          auth_change_pin_client:
+            seq:
+             - id: old_pin # MD5 Hash
+               size: 33 # Last byte is a filler Real value 32
+             - id: new_pin # MD5 Hash
+               size: 33 # Last byte is a filler Real value 32
+          #auth_change_pin_server:
+          #  seq:
+          #   - id: result # Success[1] or Fail[0] to create Pin
+          #     size: 1
+          auth_character_delete_client:
+            seq:
+             - id: unk1 # MD5 Hash
+               size: 4 # Last byte is a filler Real value 32
+             - id: animation # MD5 Hash
+               size: 24 # Last byte is a filler Real value 32
+             - id: unk2
+               size: 6
