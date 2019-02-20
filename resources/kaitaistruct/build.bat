@@ -1,0 +1,1 @@
+kaitai-struct-compiler --read-pos -t python --python-package packet_analyzer.parsers --outdir ..\\..\\packet_analyzer\\parsers\\ packet.ksy
