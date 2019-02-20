@@ -3,6 +3,7 @@ meta:
   endian: le
   imports:
     - server_messages/server_message
+    - client_messages/client_message
 params:
   - id: source
     type: str

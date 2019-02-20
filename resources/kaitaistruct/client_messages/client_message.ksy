@@ -2,7 +2,7 @@ meta:
   id: client_message
   endian: le
   imports:
-    - 0_auth_info
+    - 2_auth_info
 params:
   - id: code
     type: u2
