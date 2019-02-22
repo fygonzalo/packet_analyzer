@@ -4,6 +4,9 @@ meta:
   imports:
     - 0_ls_account_info
     - 4_ls_game_server_address
+    - 5_ls_create_pin
+    - 7_ls_change_pin
+    - 8_ls_delete_pin
     - 12_ls_announcement
 params:
   - id: code
@@ -16,6 +19,9 @@ seq:
       cases:
         0: ls_account_info
         4: ls_game_server_address
+        5: ls_create_pin
+        7: ls_change_pin
+        8: ls_delete_pin
         12: ls_announcement
         _: unknown
 types:
