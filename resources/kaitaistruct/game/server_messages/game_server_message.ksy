@@ -1,9 +1,8 @@
 meta:
-  id: server_message
+  id: game_server_message
   endian: le
   imports:
-    - 0_account_info
-    - 18_announcement
+    - 12_gs_game_server_address
 params:
   - id: code
     type: u2
@@ -13,8 +12,7 @@ seq:
     type:
       switch-on: code
       cases:
-        0: account_info
-        18: announcement
+        12: gs_game_server_address
         _: unknown
 types:
   unknown:

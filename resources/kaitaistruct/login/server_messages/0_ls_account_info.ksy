@@ -1,5 +1,5 @@
 meta:
-  id: account_info
+  id: ls_account_info
   endian: le
 seq:
   - id: error_code # 0 means no error

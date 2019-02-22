@@ -1,5 +1,5 @@
 meta:
-  id: announcement
+  id: ls_announcement
   endian: le
 seq:
   - id: unk1

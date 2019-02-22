@@ -2,11 +2,15 @@ meta:
   id: packet
   endian: le
   imports:
-    - server_messages/server_message
-    - client_messages/client_message
+    - game/server_messages/game_server_message
+    - game/client_messages/game_client_message
+    - login/server_messages/login_server_message
+    - login/client_messages/login_client_message
 params:
-  - id: source
-    type: str
+  - id: network_source
+    type: u4
+  - id: server_type
+    type: u4
 seq:
   - id: header
     type: packet_header
@@ -53,7 +57,9 @@ types:
               - id: content
                 size-eos: true
                 type:
-                  switch-on: _root.source
+                  switch-on: _root.network_source + (2 * _root.server_type)
                   cases:
-                    '"Server"': server_message(code)
-                    '"Client"': client_message(code)
+                    0: game_server_message(code)
+                    1: game_client_message(code)
+                    2: login_server_message(code)
+                    3: login_client_message(code)

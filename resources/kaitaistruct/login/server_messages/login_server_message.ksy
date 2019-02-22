@@ -1,8 +1,10 @@
 meta:
-  id: client_message
+  id: login_server_message
   endian: le
   imports:
-    - 2_auth_info
+    - 0_ls_account_info
+    - 4_ls_game_server_address
+    - 12_ls_announcement
 params:
   - id: code
     type: u2
@@ -12,7 +14,9 @@ seq:
     type:
       switch-on: code
       cases:
-        2: auth_info
+        0: ls_account_info
+        4: ls_game_server_address
+        12: ls_announcement
         _: unknown
 types:
   unknown:
