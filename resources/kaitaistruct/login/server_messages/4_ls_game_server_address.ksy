@@ -3,7 +3,11 @@ meta:
   endian: le
 seq:
   - id: unk1
-    size: 7
+    size: 2
+  - id: session_id # Related to 2_gc_auth_info. Not confirmed.
+    type: u4
+  - id: unk4
+    size: 1
   - id: ip
     type: strz
     encoding: ISO-8859-1

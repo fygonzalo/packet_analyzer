@@ -2,8 +2,9 @@ meta:
   id: gs_game_server_address
   endian: le
 seq:
-  - id: unk1
-    size: 4
+  - id: stage
+    type: u4
+    doc: stage to connect
   - id: port
     type: u2
   - id: ip

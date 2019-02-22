@@ -61,7 +61,7 @@ types:
         type: u1
       - id: skin_color
         type: u1
-      - id: map
+      - id: stage
         type: u4
       - id: unk1
         size: 16
