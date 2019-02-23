@@ -18,54 +18,112 @@
     <item>
      <widget class="QWidget" name="widget" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
        <item>
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <widget class="EventList" name="event_list">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
+         <widget class="QStackedWidget" name="list_view_stacked">
+          <property name="currentIndex">
+           <number>0</number>
           </property>
-          <property name="sizeAdjustPolicy">
-           <enum>QAbstractScrollArea::AdjustToContents</enum>
-          </property>
-          <property name="rootIsDecorated">
-           <bool>false</bool>
-          </property>
-          <property name="uniformRowHeights">
-           <bool>true</bool>
-          </property>
-          <property name="itemsExpandable">
-           <bool>false</bool>
-          </property>
-          <property name="allColumnsShowFocus">
-           <bool>true</bool>
-          </property>
-          <property name="expandsOnDoubleClick">
-           <bool>false</bool>
-          </property>
-          <attribute name="headerDefaultSectionSize">
-           <number>20</number>
-          </attribute>
-          <attribute name="headerMinimumSectionSize">
-           <number>20</number>
-          </attribute>
+          <widget class="QWidget" name="network_event_list_page">
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="NetworkEventList" name="network_event_list">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::AdjustToContents</enum>
+              </property>
+              <property name="rootIsDecorated">
+               <bool>false</bool>
+              </property>
+              <property name="uniformRowHeights">
+               <bool>true</bool>
+              </property>
+              <property name="itemsExpandable">
+               <bool>false</bool>
+              </property>
+              <property name="allColumnsShowFocus">
+               <bool>true</bool>
+              </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
+              </property>
+              <attribute name="headerDefaultSectionSize">
+               <number>35</number>
+              </attribute>
+              <attribute name="headerMinimumSectionSize">
+               <number>20</number>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="message_list_page">
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="MessageList" name="message_list">
+              <property name="rootIsDecorated">
+               <bool>false</bool>
+              </property>
+              <property name="uniformRowHeights">
+               <bool>true</bool>
+              </property>
+              <property name="itemsExpandable">
+               <bool>false</bool>
+              </property>
+              <property name="allColumnsShowFocus">
+               <bool>true</bool>
+              </property>
+              <property name="expandsOnDoubleClick">
+               <bool>false</bool>
+              </property>
+              <attribute name="headerDefaultSectionSize">
+               <number>39</number>
+              </attribute>
+              <attribute name="headerMinimumSectionSize">
+               <number>20</number>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
          <widget class="ObjectTree" name="object_tree">
           <property name="styleSheet">
@@ -111,7 +169,15 @@
     </property>
     <addaction name="action_open"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="action_view_network_event_list"/>
+    <addaction name="action_view_message_list"/>
+   </widget>
    <addaction name="menu_file"/>
+   <addaction name="menuView"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_open">
@@ -119,6 +185,27 @@
     <string>Open</string>
    </property>
   </action>
+  <actiongroup name="list_view_selector">
+   <action name="action_view_network_event_list">
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Network event list</string>
+    </property>
+   </action>
+   <action name="action_view_message_list">
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="text">
+     <string>Message list</string>
+    </property>
+   </action>
+  </actiongroup>
  </widget>
  <customwidgets>
   <customwidget>
@@ -127,16 +214,24 @@
    <header>packet_analyzer.ui.views.object_tree</header>
   </customwidget>
   <customwidget>
-   <class>EventList</class>
-   <extends>QTreeView</extends>
-   <header>packet_analyzer.ui.views.event_list</header>
-  </customwidget>
-  <customwidget>
    <class>HexViewer</class>
    <extends>QWidget</extends>
    <header>packet_analyzer.ui.widgets.hex_viewer</header>
   </customwidget>
+  <customwidget>
+   <class>NetworkEventList</class>
+   <extends>QTreeView</extends>
+   <header>packet_analyzer.ui.views.network_event_list</header>
+  </customwidget>
+  <customwidget>
+   <class>MessageList</class>
+   <extends>QTreeView</extends>
+   <header>packet_analyzer.ui.views.message_list</header>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>object_tree</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

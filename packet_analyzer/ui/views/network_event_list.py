@@ -3,11 +3,11 @@ from PySide2.QtCore import Qt, QObject, Slot, QModelIndex
 from PySide2.QtWidgets import QTreeView, QAbstractItemView, QHeaderView
 
 
-class EventList(QTreeView):
+class NetworkEventList(QTreeView):
 
     def __init__(self, parent=None):
-        super(EventList, self).__init__(parent)
+        super(NetworkEventList, self).__init__(parent)
 
     def setModel(self, model:PySide2.QtCore.QAbstractItemModel):
-        super(EventList, self).setModel(model)
+        super(NetworkEventList, self).setModel(model)
         self.header().resizeSections(QHeaderView.ResizeToContents)
