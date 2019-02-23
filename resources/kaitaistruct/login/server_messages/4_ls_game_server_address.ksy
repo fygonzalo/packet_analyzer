@@ -6,7 +6,7 @@ seq:
     size: 2
   - id: session_id # Related to 2_gc_auth_info. Not confirmed.
     type: u4
-  - id: unk4
+  - id: unk4 # Seems to be 2. Related to client "state machine"?
     size: 1
   - id: ip
     type: strz

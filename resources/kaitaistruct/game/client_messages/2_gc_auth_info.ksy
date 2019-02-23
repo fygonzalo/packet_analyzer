@@ -11,4 +11,4 @@ seq:
   - id: stage
     type: u4
   - id: session_id # not confirmed
-    size-eos: true
+    type: u4
