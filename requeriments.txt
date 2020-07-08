@@ -1,5 +1,5 @@
 anytree==2.6.0
 kaitaistruct==0.8
-PySide2==5.12.1
-shiboken2==5.12.1
+PySide2==5.14.1
+shiboken2==5.14.1
 six==1.12.0
