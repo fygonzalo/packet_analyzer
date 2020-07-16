@@ -1,4 +1,4 @@
-# Packet Analyzer v0.1.0
+# Packet Analyzer v0.1.1
 
 ## Program
 
@@ -17,16 +17,16 @@
 - Pyside2 / Qt (https://wiki.qt.io/Qt_for_Python)
 
 ## Setup
-#### 1- Download and install [Python 3.7.2](https://www.python.org/downloads/windows/)
+#### 1- Download and install [Python 3.8.4](https://www.python.org/downloads/windows/)
 
-Run the installer, check "Add python 3.7 to PATH" then clic "Install Now"
+Run the installer, check "Add python 3.8 to PATH" then clic "Install Now"
 
 ![img](https://docs.python.org/3/_images/win_installer.png)
 
 #### 2- Add python site-packages folder to path environment variable
 From the next string, replace \<User\> (with quotes) for your windows user.
 
-`C:\Users\<User>\AppData\Local\Programs\Python\Python37-32\Lib\site-packages`
+`C:\Users\<User>\AppData\Local\Programs\Python\Python38-32\Lib\site-packages`
 
 Then add to your "PATH" environment variable. If you dont know how to do that check [this guide](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)
 
