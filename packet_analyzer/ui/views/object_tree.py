@@ -19,8 +19,8 @@ class ObjectTree(QTreeView):
         self.action_export_buffer = QAction("Export buffer", self)
         self.menu.addAction(self.action_export_buffer)
 
-        #self.action_export_hex = QAction("Export as hex string", self)
-        #self.menu.addAction(self.action_export_hex)
+        self.action_export_hex = QAction("Export as hex string", self)
+        self.menu.addAction(self.action_export_hex)
 
     def setModel(self, model: PySide2.QtCore.QAbstractItemModel):
         super(ObjectTree, self).setModel(model)
@@ -38,6 +38,11 @@ class ObjectTree(QTreeView):
                     file_path, _ = QFileDialog.getSaveFileName(self, "Save file")
                     file = open(file_path, "wb")
                     file.write(node.buffer)
+                    file.close()
+                else:
+                    file_path, _ = QFileDialog.getSaveFileName(self, "Save file")
+                    file = open(file_path, "w")
+                    file.write(node.buffer.hex())
                     file.close()
         else:
             super(ObjectTree, self).mouseReleaseEvent(event)
