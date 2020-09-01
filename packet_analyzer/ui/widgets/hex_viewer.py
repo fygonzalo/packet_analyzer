@@ -1,6 +1,6 @@
 import PySide2
 from PySide2.QtWidgets import QAbstractScrollArea, QApplication
-from PySide2.QtGui import QTextLayout, QPainter, QFontMetrics, QFont
+from PySide2.QtGui import QTextLayout, QPainter, QFontMetrics, QFont, QFontDatabase
 from PySide2.QtCore import QRect, QPointF
 
 
@@ -39,7 +39,7 @@ class HexViewer(QAbstractScrollArea):
         self._set_font()
 
     def _set_font(self):
-        mono_font = QFont("monospace")
+        mono_font = QFontDatabase.systemFont(QFontDatabase.FixedFont)
         mono_font.setStyleStrategy(QFont.ForceIntegerMetrics)
         mono_font.setFixedPitch(True)
         mono_font.setPointSize(9)
